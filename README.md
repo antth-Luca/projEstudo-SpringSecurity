@@ -10,12 +10,16 @@
 ### Spring Initializr Config
 * Maven;
 * Java;
-* Spring Boot 3.3.3;
+* Spring Boot 2.6.11;
 * Packaging Jar;
 * Java 17;
 * Dependencies:
-    * Spring Web;
     * Spring Data JPA;
+    * Spring Web;
     * PostgreSQL Driver;
+    * Test;
+    * Spring DevTools;
+    * Thymeleaf;
     * Spring Security;
-    * OAuth2 Resource Server.
+    * Thymeleaf Extras Spring Security 5;
+    * Spring Security Test.
