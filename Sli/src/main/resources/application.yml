@@ -1,0 +1,11 @@
+# Aplicação
+server.port: 8080
+spring:
+    application.name: Sli
+
+# Database global configuration
+    neo4j:
+        uri: bolt://localhost:7687
+        authentication:
+            username: neo4j
+            password: neo4j

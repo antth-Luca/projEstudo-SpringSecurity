@@ -1,0 +1,9 @@
+campo:
+    nome.obrigatorio: O campo nome é obrigatório.
+    cpf:
+        obrigatorio: O campo CPF é obrigatório.
+        invalido: CPF inválido.
+
+entidade:
+    cliente:
+        invalido: Cliente inválido.
