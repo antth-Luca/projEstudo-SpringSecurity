@@ -1,9 +1,7 @@
 package io.github.antth_Luca.api.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.neo4j.repository.Neo4jRepository;
 
 import io.github.antth_Luca.api.model.Cliente;
 
-public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
-
-}
+public interface ClienteRepository extends Neo4jRepository<Cliente, Long> { }

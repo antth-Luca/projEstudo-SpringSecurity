@@ -1,22 +1,22 @@
 package io.github.antth_Luca.api.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.GeneratedValue;
+import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Property;
+
 import lombok.Data;
 
-@Entity
+@Node
 @Data
 public class Cidade {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue
+    private Long id;
 
-    @Column
+    @Property("nome")
     private String nome;
 
-    @Column
+    @Property("uf")
     private String uf;
 }

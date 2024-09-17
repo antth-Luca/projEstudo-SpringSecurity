@@ -45,13 +45,13 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Response<Cliente>> getById(@PathVariable Integer id) {
+    public ResponseEntity<Response<Cliente>> getById(@PathVariable Long id) {
         return service.getById(id);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(code=HttpStatus.NO_CONTENT)
-    public ResponseEntity<Response<Cliente>> deleteById(@PathVariable Integer id) {
+    public ResponseEntity<Response<Cliente>> deleteById(@PathVariable Long id) {
         return service.deleteById(id);
     }
 }

@@ -2,32 +2,32 @@ package io.github.antth_Luca.api.model;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.GeneratedValue;
+import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Property;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-@Entity
+@Node
 @Data
 public class Cliente {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue
+    private Long id;
 
-    @Column
+    @Property("nome")
     @Valid
     @NotEmpty(message="{campo.nome.obrigatorio}")
     private String nome;
 
-    @Column
+    @Property("endereco")
     private String endereco;
 
-    @Column(nullable=false, length=11)
+    @Property("cpf")
     @Valid
     @NotNull(message="{campo.cpf.obrigatorio}")
     @CPF(message="{campo.cpf.invalido}")

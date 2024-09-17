@@ -36,7 +36,7 @@ public class CidadeController {
     }
 
     @GetMapping("/{id}")
-    public Cidade getById(@PathVariable Integer id) {
+    public Cidade getById(@PathVariable Long id) {
         return repository.findById(id).get();  // 'findById' retorna um object 'option' que não tem os dados, por isso use com 'get';
     }
 
@@ -47,7 +47,7 @@ public class CidadeController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(code=HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Integer id) {
+    public void delete(@PathVariable Long id) {
         Cidade obj = repository.findById(id).get();
         repository.delete(obj);
     }

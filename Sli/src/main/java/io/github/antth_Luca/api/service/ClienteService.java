@@ -17,7 +17,7 @@ public interface ClienteService {
 
     List<Cliente> listar();
 
-    ResponseEntity<Response<Cliente>> getById(Integer id);
+    ResponseEntity<Response<Cliente>> getById(Long id);
 
-    ResponseEntity<Response<Cliente>> deleteById(Integer id);
+    ResponseEntity<Response<Cliente>> deleteById(Long id);
 }

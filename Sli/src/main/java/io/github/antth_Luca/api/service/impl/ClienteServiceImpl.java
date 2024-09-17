@@ -42,7 +42,7 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public ResponseEntity<Response<Cliente>> getById(Integer id) {
+    public ResponseEntity<Response<Cliente>> getById(Long id) {
         Response<Cliente> response = new Response<Cliente>();
         Cliente obj = null;
         try {
@@ -58,7 +58,7 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public ResponseEntity<Response<Cliente>> deleteById(Integer id) {
+    public ResponseEntity<Response<Cliente>> deleteById(Long id) {
         Response<Cliente> response = new Response<Cliente>();
         Cliente obj = null;
         try {
