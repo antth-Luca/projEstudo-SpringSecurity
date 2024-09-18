@@ -1,12 +1,12 @@
 package io.github.antth_Luca.api.Enum;
 
 public enum RoleEnum {
-    ADMIN("Admin"),
-    COMMON("Comum");
+    ADMIN("admin"),
+    COMMON("comum");
 
     private String role;
 
-    private RoleEnum(String role) {
+    RoleEnum(String role) {
         this.role = role;
     }
 

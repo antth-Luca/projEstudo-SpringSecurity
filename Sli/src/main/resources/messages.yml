@@ -6,6 +6,8 @@ campo:
         invalido: CPF inválido.
     role:
         obrigatorio: O campo role é obrigatório.
+    senha:
+        obrigatorio: O campo senha é obrigatório.
 
 entidade:
     cliente:

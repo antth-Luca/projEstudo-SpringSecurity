@@ -3,23 +3,23 @@
  * Início: 14/09/2023 - Ainda não terminado.
 
 ---
+### Spring Initializr Config
+* Maven;
+* Java;
+* Spring Boot 3.3.3;
+* Packaging Jar;
+* Java 17;
+* Dependencies:
+    * Spring Data Neo4j [NoSQL];
+    * Spring Security [Security];
+    * Spring Web [WEB];
+    * Spring Boot DevTools [Developer Tools];
+    * Lombok [Developer Tools];
+    * Validation [I/O].
+
 ### VSCode extensions:
 * Extension Pack for Java;
 * Spring Boot Extension Pack;
 
-### Spring Initializr Config
-* Maven;
-* Java;
-* Spring Boot 2.6.11;
-* Packaging Jar;
-* Java 17;
-* Dependencies:
-    * Spring Data JPA;
-    * Spring Web;
-    * PostgreSQL Driver;
-    * Test;
-    * Spring DevTools;
-    * Thymeleaf;
-    * Spring Security;
-    * Thymeleaf Extras Spring Security 5;
-    * Spring Security Test.
+### Browser extensions:
+* JSON Viewer;
