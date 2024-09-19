@@ -48,6 +48,20 @@ public class Cliente implements UserDetails {
     @NotNull(message = "{campo.role.obrigatorio}")
     private RoleEnum role;
 
+    // Constructors
+    public Cliente() { }
+
+    public Cliente(@Valid @NotEmpty(message = "{campo.nome.obrigatorio}") String nome, String endereco,
+            @Valid @NotNull(message = "{campo.cpf.obrigatorio}") @CPF(message = "{campo.cpf.invalido}") String cpf,
+            @NotNull(message = "{campo.senha.obrigatorio}") String senha,
+            @NotNull(message = "{campo.role.obrigatorio}") RoleEnum role) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.role = role;
+    }
+
     // Implementação dos métodos do UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
