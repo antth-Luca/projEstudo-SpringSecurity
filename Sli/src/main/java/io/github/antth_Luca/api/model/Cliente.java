@@ -17,10 +17,10 @@ import io.github.antth_Luca.api.Enum.RoleEnum;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.Getter;
 
 @Node
-@Data
+@Getter
 public class Cliente implements UserDetails {
     @Id
     @GeneratedValue
