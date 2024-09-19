@@ -25,7 +25,7 @@ public class AuthenticationController {
     private ClienteRepository clienteRepo;
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data) {
+    public ResponseEntity<Void> login(@RequestBody @Valid AuthenticationDTO data) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.senha());  // Ele usa os métodos do repository para conseguir login e senha.
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
@@ -33,7 +33,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody @Valid RegisterDTO data) {
+    public ResponseEntity<Void> register(@RequestBody @Valid RegisterDTO data) {
         if (this.clienteRepo.findByCpf(data.login()) != null) return ResponseEntity.badRequest().build();
 
         String hashPassword = new BCryptPasswordEncoder().encode(data.senha());
@@ -41,7 +41,7 @@ public class AuthenticationController {
             data.nome(),
             data.endereco(),
             data.login(),
-            data.senha(),
+            hashPassword,
             data.role()
         );
 
