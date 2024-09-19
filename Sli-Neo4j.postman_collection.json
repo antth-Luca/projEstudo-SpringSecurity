@@ -69,6 +69,31 @@
 					},
 					"response": []
 				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -199,16 +224,6 @@
 					"response": []
 				}
 			],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIke3NwcmluZy5hcHBsaWNhdGlvbi5uYW1lfSIsInN1YiI6IjgyNDQ0NjU1MDYwIiwiZXhwIjoxNzI2NzU5NDM5fQ.VEVYWvW5vE3XonGXpDKpXQlUbkD5Mu5TSX52XzRTizLTbQ9dvbMi6X57j5Y9xnSUWJB5per-tINrkU_FBe_LVp5hV2pojAN7ZIbSLE265MStFEA1_-y5CKOkqB2Veg6NgDG7ZYnG89cfIJhjylWovRGcB_LgI7IuRHiJ7StaQxTPpn0S0W-4naLL-Aj0nJ38gxsMTZ6MIZZQXuL4dK0NFJVX03ncwrepVmsZokOfgI9pCxfwEQ7mvTAV3WUzoCkMJtuhYIqt7cNYiFtDzRcwuG5W3RxdkxO9CB6G05HlOZaRPuvO3i29PSnoPFXzQMMsmLAlQWHj_8wHr0het8cfAg",
-						"type": "string"
-					}
-				]
-			},
 			"event": [
 				{
 					"listen": "prerequest",
@@ -389,16 +404,6 @@
 					"response": []
 				}
 			],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIke3NwcmluZy5hcHBsaWNhdGlvbi5uYW1lfSIsInN1YiI6IjgyNDQ0NjU1MDYwIiwiZXhwIjoxNzI2NzU0MTUxfQ.rBjCe4J5-KYT8h1sbSjFJxYlGb9T_6m8FTlT5PjOPRo",
-						"type": "string"
-					}
-				]
-			},
 			"event": [
 				{
 					"listen": "prerequest",
@@ -421,6 +426,38 @@
 					}
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIke3NwcmluZy5hcHBsaWNhdGlvbi5uYW1lfSIsInN1YiI6IjgyNDQ0NjU1MDYwIiwiZXhwIjoxNzI2NzkwMjkyfQ.Pqya8bCLUEY4B7UwdJ0W7wb-cqoXCFClzzyJC7jcKOI-KbwT5HO8woYnxQXzBeP-jKx30DEs2sxlxd0r1zgyhRDnb20Be8lQoZOug385RdoA0UFPZ25imZkSfegvdDCt-76CsExRMGAn7ttHsNWzitkqLdZJG8vcU8QBDy6mSGPaSQ1HD3_ZONS7bFoANfFcgpd67GQsS06ZC_ouR_ImMoGR2UYG21RUmxQVwMH-35TMqhziPLB8kV8biPu0gPiRvBnv5mikzNXo1GtCWU5qzVb5z5Qlhh7BVr2FsYnhc2Sgc2PrqpGWkhTBcMOTOE6MLHBqfRyUYW8fGK5fqPdBAg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

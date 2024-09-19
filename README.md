@@ -6,7 +6,7 @@
 ### Spring Initializr Config
 * Maven;
 * Java;
-* Spring Boot 3.3.3;
+* Spring Boot 3.3.4;
 * Packaging Jar;
 * Java 17;
 * Dependencies:
