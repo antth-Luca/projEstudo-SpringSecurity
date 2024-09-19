@@ -52,8 +52,13 @@ public class Cliente implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         // IF e ELSE para retornar a Role do usuário, lembrando que o nível acima, também retorna os níveis abaixo
-        if (this.role == RoleEnum.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_COMMON"));
-        else return List.of(new SimpleGrantedAuthority("ROLE_COMMON"));
+        if (this.role == RoleEnum.ADMIN) return List.of(
+            new SimpleGrantedAuthority("ROLE_ADMIN"),
+            new SimpleGrantedAuthority("ROLE_COMMON")
+            );
+        else return List.of(
+            new SimpleGrantedAuthority("ROLE_COMMON")
+            );
     }
 
     @Override

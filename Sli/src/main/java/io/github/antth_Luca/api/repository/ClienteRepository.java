@@ -6,5 +6,5 @@ import org.springframework.security.core.userdetails.UserDetails;
 import io.github.antth_Luca.api.model.Cliente;
 
 public interface ClienteRepository extends Neo4jRepository<Cliente, Long> {
-    UserDetails findByLogin(String login);
+    UserDetails findByCpf(String cpf);
 }
