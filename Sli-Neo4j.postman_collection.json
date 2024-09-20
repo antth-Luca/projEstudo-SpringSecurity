@@ -24,14 +24,11 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/auth/login",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/auth/login",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
 								"auth",
 								"login"
 							]
@@ -54,14 +51,11 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/auth/register",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/auth/register",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
 								"auth",
 								"register"
 							]
@@ -105,12 +99,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/cliente",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/cliente",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"cliente"
@@ -137,12 +129,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cliente/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/cliente/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"cliente",
@@ -173,12 +163,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cliente",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/cliente",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"cliente"
@@ -202,12 +190,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cliente/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/cliente/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"cliente",
@@ -265,12 +251,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cidade",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/cidade",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"cidade"
@@ -285,12 +269,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/cidade",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/cidade",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"cidade"
@@ -317,12 +299,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cidade/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/cidade/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"cidade",
@@ -353,12 +333,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cidade",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/cidade",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"cidade"
@@ -382,12 +360,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cidade/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/cidade/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"cidade",
@@ -433,7 +409,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIke3NwcmluZy5hcHBsaWNhdGlvbi5uYW1lfSIsInN1YiI6IjgyNDQ0NjU1MDYwIiwiZXhwIjoxNzI2NzkwMjkyfQ.Pqya8bCLUEY4B7UwdJ0W7wb-cqoXCFClzzyJC7jcKOI-KbwT5HO8woYnxQXzBeP-jKx30DEs2sxlxd0r1zgyhRDnb20Be8lQoZOug385RdoA0UFPZ25imZkSfegvdDCt-76CsExRMGAn7ttHsNWzitkqLdZJG8vcU8QBDy6mSGPaSQ1HD3_ZONS7bFoANfFcgpd67GQsS06ZC_ouR_ImMoGR2UYG21RUmxQVwMH-35TMqhziPLB8kV8biPu0gPiRvBnv5mikzNXo1GtCWU5qzVb5z5Qlhh7BVr2FsYnhc2Sgc2PrqpGWkhTBcMOTOE6MLHBqfRyUYW8fGK5fqPdBAg",
+				"value": "",
 				"type": "string"
 			}
 		]
@@ -458,6 +434,13 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "string"
 		}
 	]
 }

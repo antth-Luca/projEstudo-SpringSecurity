@@ -30,8 +30,8 @@ public class SecurityConfigurations {
                 // Stateful: guarda dados de sessão; 
                 // Stateless: não guarda dados, usa tokens.
                 .authorizeHttpRequests(authorize -> authorize
-                    .requestMatchers(HttpMethod.POST, "api/auth/login").permitAll()
-                    .requestMatchers(HttpMethod.POST, "api/auth/register").permitAll()
+                    .requestMatchers(HttpMethod.POST, "auth/login").permitAll()
+                    .requestMatchers(HttpMethod.POST, "auth/register").permitAll()
                     .requestMatchers(HttpMethod.POST, "api/cliente").hasRole("ADMIN")
                     
                     .anyRequest().authenticated()

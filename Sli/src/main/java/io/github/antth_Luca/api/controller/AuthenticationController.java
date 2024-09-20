@@ -19,7 +19,7 @@ import io.github.antth_Luca.api.repository.ClienteRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("api/auth")
+@RequestMapping("/auth")
 public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
