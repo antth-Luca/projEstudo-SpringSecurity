@@ -33,8 +33,8 @@ public class RefreshTokenService {
     @Autowired
     private RefreshTokenRepository refreshTokenRepo;
 
+    @Transactional
     public String generateRefreshToken(Cliente cliente) {
-        System.out.println(cliente);
         try {
             String jti = UUID.randomUUID().toString();
 
@@ -91,6 +91,10 @@ public class RefreshTokenService {
 
         refreshTokenRepo.deleteByJwtId(decodedJWT.getClaim("refresh_token_id").asString());
         return generateRefreshToken(cliente);
+    }
+
+    public void deleteRefreshToken(Cliente cliente) {
+        refreshTokenRepo.deleteByClienteCpf(cliente.getCpf());
     }
 
     private Instant genExpirationDate() {
