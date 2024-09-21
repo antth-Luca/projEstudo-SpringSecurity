@@ -1,4 +1,4 @@
-package io.github.antth_Luca.api.controller.Record;
+package io.github.antth_Luca.api.controller.dto;
 
 import io.github.antth_Luca.api.Enum.RoleEnum;
 
@@ -8,4 +8,4 @@ public record RegisterDTO(
     String login,
     String senha,
     RoleEnum role
-    ) { }
+) { }
