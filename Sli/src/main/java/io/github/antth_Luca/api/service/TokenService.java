@@ -18,10 +18,10 @@ import io.github.antth_Luca.api.model.Cliente;
 
 @Service
 public class TokenService {
-    @Value("${jwt.key.private}")
+    @Value("${jwt.asym-key.private}")
     private RSAPrivateKey privateKey;
 
-    @Value("${jwt.key.public}")
+    @Value("${jwt.asym-key.public}")
     private RSAPublicKey publicKey;
 
     public String generateToken(Cliente cliente) {

@@ -1,12 +1,17 @@
 {"properties": [
   {
-    "name": "jwt.key.private",
+    "name": "jwt.asym-key.private",
     "type": "java.lang.String",
-    "description": "A description for 'jwt.key.private'"
+    "description": "A description for 'jwt.asym-key.private'"
   },
   {
-    "name": "jwt.key.public",
+    "name": "jwt.asym-key.public",
     "type": "java.lang.String",
-    "description": "A description for 'jwt.key.public'"
+    "description": "A description for 'jwt.asym-key.public'"
+  },
+  {
+    "name": "jwt.sym-key",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.sym-key'"
   }
 ]}

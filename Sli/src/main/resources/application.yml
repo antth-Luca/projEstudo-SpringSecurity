@@ -18,6 +18,7 @@ logging:
 
 # Chave secreta para tokens JWT
 jwt:
-    key:
+    asym-key:
         private: classpath:app.key
         public: classpath:app.pub
+    sym-key: classpath:sim256.key
