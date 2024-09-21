@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.antth_Luca.api.controller.Record.AuthenticationDTO;
-import io.github.antth_Luca.api.controller.Record.LoginResponseDTO;
-import io.github.antth_Luca.api.controller.Record.RegisterDTO;
-import io.github.antth_Luca.api.infra.security.TokenService;
+import io.github.antth_Luca.api.DTO.AuthenticationDTO;
+import io.github.antth_Luca.api.DTO.LoginResponseDTO;
+import io.github.antth_Luca.api.DTO.RegisterDTO;
 import io.github.antth_Luca.api.model.Cliente;
 import io.github.antth_Luca.api.repository.ClienteRepository;
+import io.github.antth_Luca.api.service.TokenService;
 import jakarta.validation.Valid;
 
 @RestController
