@@ -9,4 +9,6 @@ import io.github.antth_Luca.api.model.RefreshToken;
 
 public interface RefreshTokenRepository extends Neo4jRepository<RefreshToken, Long> {
     Optional<RefreshToken> findByJwtId(String jwtId);
+
+    void deleteByJwtId(String jwtId);
 }

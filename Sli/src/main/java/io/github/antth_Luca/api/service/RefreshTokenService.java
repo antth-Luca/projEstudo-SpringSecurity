@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -20,6 +21,9 @@ import io.github.antth_Luca.api.repository.RefreshTokenRepository;
 
 @Service
 public class RefreshTokenService {
+    @Value("${spring.application.name}")
+    private String appName;
+
     @Value("${jwt.sym-key}")
     private String symKey;
 
@@ -36,7 +40,7 @@ public class RefreshTokenService {
 
             Algorithm algorithm = Algorithm.HMAC256(symKey);
             String jwtRefreshToken = JWT.create()
-                    .withIssuer("${spring.application.name}")
+                    .withIssuer(appName)
                     .withClaim("refresh_token_id", jti)
                     .withExpiresAt(genExpirationDate())
                     .sign(algorithm);
@@ -59,7 +63,7 @@ public class RefreshTokenService {
         try {
             Algorithm algorithm = Algorithm.HMAC256(symKey);
             var decodedJWT = JWT.require(algorithm)
-                    .withIssuer("${spring.application.name}")
+                    .withIssuer(appName)
                     .build()
                     .verify(token);
 
@@ -77,12 +81,16 @@ public class RefreshTokenService {
         }
     }
 
-    public void revokeRefreshToken(String token) {
-        RefreshToken refreshToken = refreshTokenRepo.findByJwtId(token)
-            .orElseThrow(() -> new RuntimeException("Token inválido ou não encontrado"));
+    @Transactional
+    public String updateRefreshToken(String oldRefreshToken, Cliente cliente) {
+        Algorithm algorithm = Algorithm.HMAC256(symKey);
+        var decodedJWT = JWT.require(algorithm)
+                .withIssuer(appName)
+                .build()
+                .verify(oldRefreshToken);
 
-        refreshToken.set_revoked(true);
-        refreshTokenRepo.save(refreshToken);
+        refreshTokenRepo.deleteByJwtId(decodedJWT.getClaim("refresh_token_id").asString());
+        return generateRefreshToken(cliente);
     }
 
     private Instant genExpirationDate() {

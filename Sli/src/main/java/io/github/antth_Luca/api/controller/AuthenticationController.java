@@ -51,17 +51,20 @@ public class AuthenticationController {
 
     @PostMapping("/refresh")
     public ResponseEntity<?> refreshToken(@RequestBody @Valid RefreshDTO data) {
-        String refreshToken = data.refreshToken();
+        String oldRefreshToken = data.refreshToken();
         
         try {
             // Valida o refresh token e retorna o CPF do cliente
-            String cpfCliente = refreshTokenService.validateRefreshToken(refreshToken);
+            String cpfCliente = refreshTokenService.validateRefreshToken(oldRefreshToken);
+            Cliente cliente = (Cliente) clienteRepo.findByCpf(cpfCliente);
 
             // Gera um novo access token usando o CPF
-            String newAccessToken = tokenService.generateToken((Cliente) clienteRepo.findByCpf(cpfCliente));
+            String newAccessToken = tokenService.generateToken(cliente);
+            // Gera um novo refresh token e atualiza o banco
+            String newRefreshToken = refreshTokenService.updateRefreshToken(oldRefreshToken, cliente);
 
             // Retorna a resposta com o novo access token e o refresh token
-            return ResponseEntity.ok(new LoginResponseDTO(newAccessToken, refreshToken));
+            return ResponseEntity.ok(new LoginResponseDTO(newAccessToken, newRefreshToken));
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Refresh Token");
         }
