@@ -21,7 +21,7 @@ public class RefreshToken {
     @Property("jti")
     private String jwtId;
 
-    @Relationship(type = "HAS_REFRESH_TOKEN")
+    @Relationship(type = "HAS_REFRESH_TOKEN", direction = Relationship.Direction.INCOMING)
     private Cliente cliente;
 
     @Property("iat")
