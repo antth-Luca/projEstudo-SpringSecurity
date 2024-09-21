@@ -1,5 +1,11 @@
 # Aplicação
 server.port: 8080
+time:
+    expiration:
+        # Em minutos (5)
+        access-token: 1
+        # Em horas (48)
+        refresh-token: 48
 spring:
     application.name: Sli
 

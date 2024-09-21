@@ -1,6 +1,7 @@
 package io.github.antth_Luca.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.antth_Luca.api.dto.AuthenticationDTO;
 import io.github.antth_Luca.api.dto.LoginResponseDTO;
+import io.github.antth_Luca.api.dto.RefreshDTO;
 import io.github.antth_Luca.api.dto.RegisterDTO;
 import io.github.antth_Luca.api.model.Cliente;
 import io.github.antth_Luca.api.repository.ClienteRepository;
+import io.github.antth_Luca.api.service.RefreshTokenService;
 import io.github.antth_Luca.api.service.TokenService;
 import jakarta.validation.Valid;
 
@@ -32,14 +35,36 @@ public class AuthenticationController {
     @Autowired
     private TokenService tokenService;
 
+    @Autowired
+    private RefreshTokenService refreshTokenService;
+
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDTO> login(@RequestBody @Valid AuthenticationDTO data) {
-        var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.senha());  // Ele usa os métodos do repository para conseguir login e senha.
+        var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.senha());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-        var token = tokenService.generateToken((Cliente) auth.getPrincipal());
+        var accessToken = tokenService.generateToken((Cliente) auth.getPrincipal());
+        var refreshToken = refreshTokenService.generateRefreshToken((Cliente) auth.getPrincipal());
 
-        return ResponseEntity.ok(new LoginResponseDTO(token));
+        return ResponseEntity.ok(new LoginResponseDTO(accessToken, refreshToken));
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refreshToken(@RequestBody @Valid RefreshDTO data) {
+        String refreshToken = data.refreshToken();
+        
+        try {
+            // Valida o refresh token e retorna o CPF do cliente
+            String cpfCliente = refreshTokenService.validateRefreshToken(refreshToken);
+
+            // Gera um novo access token usando o CPF
+            String newAccessToken = tokenService.generateToken((Cliente) clienteRepo.findByCpf(cpfCliente));
+
+            // Retorna a resposta com o novo access token e o refresh token
+            return ResponseEntity.ok(new LoginResponseDTO(newAccessToken, refreshToken));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Refresh Token");
+        }
     }
 
     @PostMapping("/register")

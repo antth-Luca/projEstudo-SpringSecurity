@@ -24,6 +24,9 @@ public class TokenService {
     @Value("${jwt.asym-key.public}")
     private RSAPublicKey publicKey;
 
+    @Value("${time.expiration.access-token}")
+    private Integer accessExpiration;
+
     public String generateToken(Cliente cliente) {
         try {
             Algorithm algorithm = Algorithm.RSA256(null, privateKey);
@@ -35,7 +38,7 @@ public class TokenService {
 
             return token;
         } catch (JWTCreationException e) {
-            throw new RuntimeException("Erro durante a geração do token", e);
+            throw new RuntimeException("Erro durante a geração do access token", e);
         }
     }
 
@@ -53,6 +56,6 @@ public class TokenService {
     }
 
     private Instant genExpirationDate() {
-        return LocalDateTime.now().plusMinutes(5).toInstant(ZoneOffset.of("-03:00"));
+        return LocalDateTime.now().plusMinutes(accessExpiration).toInstant(ZoneOffset.of("-03:00"));
     }
 }
