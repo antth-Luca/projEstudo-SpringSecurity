@@ -1,4 +1,4 @@
-package io.github.antth_Luca.api.security;
+package io.github.antth_Luca.api.infra.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

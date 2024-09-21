@@ -1,4 +1,4 @@
-package io.github.antth_Luca.api.service;
+package io.github.antth_Luca.api.infra.security;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;

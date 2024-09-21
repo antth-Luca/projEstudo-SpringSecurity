@@ -1,4 +1,4 @@
-package io.github.antth_Luca.api.DTO;
+package io.github.antth_Luca.api.controller.Record;
 
 import io.github.antth_Luca.api.Enum.RoleEnum;
 
