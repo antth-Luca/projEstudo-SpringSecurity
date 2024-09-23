@@ -2,10 +2,10 @@
 server.port: 8080
 time:
     expiration:
-        # Em minutos (5)
-        access-token: 1
-        # Em horas (48)
-        refresh-token: 48
+        # Em minutos (padrão: 5)
+        access-token: 5
+        # Em horas (padrão: 24)
+        refresh-token: 24
 spring:
     application.name: Sli
 
